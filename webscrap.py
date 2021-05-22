@@ -1,0 +1,15 @@
+import requests
+r = requests.get("https://gutenberg.org/cache/epub/1112/pg1112.txt")
+print(r.status_code)
+#print(r.text)
+#x = r.content.decode()
+#print(x[0:200])
+f = open("romeo.txt", "wb")
+i = r.iter_content(1000)
+for l in i:
+    f.write(l)
+f.close()
+f = open("romeo.txt", "r")
+d = f.readlines()
+print(d)
+f.close()
